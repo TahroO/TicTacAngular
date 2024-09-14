@@ -14,4 +14,41 @@ app-square {
   height: 75px;
   width: 150px;
   align-self: center;
+  background: rgb(247,32,32);
+  background: linear-gradient(86deg, rgba(247,32,32,1) 0%, rgba(37,53,255,1) 100%);
+  border: 2px black solid;
+}
+
+.startButtonContainer {
+  height: 75px;
+  width: 150px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.result {
+  font-size: 25px;
+  font-family: Courier, sans-serif;
+  font-weight: bold;
+  margin-left: 205px;
+}
+
+.resultContainer {
+  width: 500px;
+  height: 50px;
+}
+
+.head {
+  font-size: 25px;
+  font-family: Courier, sans-serif;
+  font-weight: bold;
+  margin-left: 175px;
+}
+
+#headO {
+  color: blue;
+}
+
+#headX {
+  color: red;
 }

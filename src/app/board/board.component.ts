@@ -17,11 +17,13 @@ export class BoardComponent implements OnInit{
   squares: any[];
   xIsNext: boolean;
   winner: string;
+  isGame: boolean;
 
   constructor() {
     this.squares = [];
     this.xIsNext = true;
     this.winner = '';
+    this.isGame = true;
   }
 
   ngOnInit(): void {
@@ -33,10 +35,15 @@ export class BoardComponent implements OnInit{
     this.squares = Array(9).fill(null);
     this.xIsNext = true;
     this.winner = '';
+    this.isGame = this.switchGameActive();
   }
 
   protected getPlayer() {
     return this.xIsNext ? 'X' : 'O';
+  }
+
+  protected switchGameActive() {
+    return !this.isGame;
   }
 
   protected makeMove(idx: number) {
@@ -64,9 +71,14 @@ export class BoardComponent implements OnInit{
         this.squares[a] === this.squares[b] &&
         this.squares[a] == this.squares[c]
       ){
+        this.isGame = false;
         return this.squares[a];
       }
     }
     return null;
+  }
+
+  protected getGameState() {
+    return this.isGame;
   }
 }
