@@ -16,8 +16,20 @@ export class SquareComponent {
   // }
   // rand = Math.random();
   @Input() value: 'X' | 'O';
+  color: string;
 
   constructor() {
     this.value = 'X';
+    this.color = this.getColor();
+  }
+
+  protected getColor(){
+    if (this.value === 'X') {
+      return 'blue';
+    }
+    if (this.value === 'O') {
+      return 'red';
+    }
+    return 'grey';
   }
 }

@@ -1,3 +1,4 @@
+
 main {
   display: grid;
   grid-template-columns: 200px 200px 200px;
@@ -6,4 +7,11 @@ main {
 app-square {
   border: 1px gray solid;
   height: 200px;
+}
+.startButton {
+  margin-left: 225px;
+  margin-bottom: 20px;
+  height: 75px;
+  width: 150px;
+  align-self: center;
 }
