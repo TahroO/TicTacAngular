@@ -5,9 +5,12 @@ main {
   grid-gap: 0px;
 }
 app-square {
-  border: 1px gray solid;
+  border: 1px black solid;
   height: 200px;
 }
+
+
+
 .startButton {
   margin-left: 225px;
   margin-bottom: 20px;
@@ -17,6 +20,10 @@ app-square {
   background: rgb(247,32,32);
   background: linear-gradient(86deg, rgba(247,32,32,1) 0%, rgba(37,53,255,1) 100%);
   border: 2px black solid;
+
+}
+.startButton:hover {
+  animation: pulse 2s infinite;
 }
 
 .startButtonContainer {
@@ -52,3 +59,18 @@ app-square {
 #headX {
   color: red;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
