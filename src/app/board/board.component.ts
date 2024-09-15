@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {SquareComponent} from "../square/square.component";
+import {addCommandModuleToYargs} from "@angular/cli/src/command-builder/utilities/command";
 
 @Component({
   selector: 'app-board',
@@ -18,12 +19,16 @@ export class BoardComponent implements OnInit{
   xIsNext: boolean;
   winner: string;
   isGame: boolean;
+  counterX: number;
+  counterY: number;
 
   constructor() {
     this.squares = [];
     this.xIsNext = true;
     this.winner = '';
     this.isGame = true;
+    this.counterX = 0;
+    this.counterY = 0;
   }
 
   ngOnInit(): void {
@@ -71,6 +76,12 @@ export class BoardComponent implements OnInit{
         this.squares[a] === this.squares[b] &&
         this.squares[a] == this.squares[c]
       ){
+        if (this.squares[a] === 'X') {
+          this.counterX++;
+        }
+        if (this.squares[a] === 'O') {
+          this.counterY++;
+        }
         this.isGame = false;
         return this.squares[a];
       }
