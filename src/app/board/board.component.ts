@@ -20,7 +20,7 @@ export class BoardComponent implements OnInit{
   winner: string;
   isGame: boolean;
   counterX: number;
-  counterY: number;
+  counterO: number;
 
   constructor() {
     this.squares = [];
@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit{
     this.winner = '';
     this.isGame = true;
     this.counterX = 0;
-    this.counterY = 0;
+    this.counterO = 0;
   }
 
   ngOnInit(): void {
@@ -75,15 +75,17 @@ export class BoardComponent implements OnInit{
         this.squares[a] &&
         this.squares[a] === this.squares[b] &&
         this.squares[a] == this.squares[c]
-      ){
-        if (this.squares[a] === 'X') {
-          this.counterX++;
+      ) {
+        if (this.isGame) {
+          if (this.squares[a] === 'X') {
+            this.counterX++;
+          }
+          if (this.squares[a] === 'O') {
+            this.counterO++;
+          }
+          this.isGame = false;
+          return this.squares[a];
         }
-        if (this.squares[a] === 'O') {
-          this.counterY++;
-        }
-        this.isGame = false;
-        return this.squares[a];
       }
     }
     return null;
