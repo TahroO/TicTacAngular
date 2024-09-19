@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {SquareComponent} from "../square/square.component";
-import {addCommandModuleToYargs} from "@angular/cli/src/command-builder/utilities/command";
 
 @Component({
   selector: 'app-board',
@@ -14,13 +13,14 @@ import {addCommandModuleToYargs} from "@angular/cli/src/command-builder/utilitie
   templateUrl: './board.component.html',
   styleUrl: './board.component.css'
 })
-export class BoardComponent implements OnInit{
+export class BoardComponent implements OnInit {
   squares: any[];
   xIsNext: boolean;
   winner: string;
   isGame: boolean;
   counterX: number;
   counterO: number;
+  showStartButton: boolean;
 
   constructor() {
     this.squares = [];
@@ -29,6 +29,7 @@ export class BoardComponent implements OnInit{
     this.isGame = true;
     this.counterX = 0;
     this.counterO = 0;
+    this.showStartButton = false;
   }
 
   ngOnInit(): void {
@@ -41,6 +42,8 @@ export class BoardComponent implements OnInit{
     this.xIsNext = true;
     this.winner = '';
     this.isGame = this.switchGameActive();
+    this.showStartButton = false;
+
   }
 
   protected getPlayer() {
@@ -57,7 +60,12 @@ export class BoardComponent implements OnInit{
       this.xIsNext = !this.xIsNext;
     }
     this.winner = this.calculateWinner();
+    // console.warn(this.squares.length)
+    // if (this.squares.length === 8 && !this.winner) {
+    //   this.showStartButton = true;
+    // }
   }
+
   protected calculateWinner() {
     const lines = [
       [0, 1, 2],

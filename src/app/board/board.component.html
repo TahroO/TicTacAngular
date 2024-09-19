@@ -1,30 +1,31 @@
 <div class="head" id="headX" *ngIf="getPlayer() === 'X'">
-  <p>Current Player: {{getPlayer()}}</p>
+  <p>Current Player: {{ getPlayer() }}</p>
 </div>
 <div class="head" id="headO" *ngIf="getPlayer() === 'O'">
-  <p>Current Player: {{getPlayer()}}</p>
+  <p>Current Player: {{ getPlayer() }}</p>
 </div>
 <div class="startButtonContainer">
-  <button *ngIf= "!getGameState()" class="startButton" (click)="newGame()">Start new Game!</button>
+  <button *ngIf="!getGameState()" class="startButton" (click)="newGame()">Start new Game!</button>
 </div>
 <div class="resultContainer">
   <h2 *ngIf="winner" class="result">
-    Player {{winner}} won!
-</h2>
+    Player {{ winner }} won!
+  </h2>
 </div>
 <div class="counterContainer">
-<div class="counterXContainer">
-  <p>Player X: {{counterX}}</p>
-</div>
-<div class="counterOContainer">
-  <p>Player O: {{counterO}}</p>
-</div>
+  <div class="counterXContainer">
+    <p>Player X: {{ counterX }}</p>
+  </div>
+  <div class="counterOContainer">
+    <p>Player O: {{ counterO }}</p>
+  </div>
 </div>
 
 <main>
   <app-square
     *ngFor="let val of squares; let i = index"
     [value]="val"
-    (click)="makeMove(i)">
+    (click)="makeMove(i)"
+  >
   </app-square>
 </main>
