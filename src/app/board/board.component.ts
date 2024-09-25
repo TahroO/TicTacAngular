@@ -60,10 +60,20 @@ export class BoardComponent implements OnInit {
       this.xIsNext = !this.xIsNext;
     }
     this.winner = this.calculateWinner();
-    // console.warn(this.squares.length)
-    // if (this.squares.length === 8 && !this.winner) {
-    //   this.showStartButton = true;
-    // }
+    console.warn(this.squares);
+    console.warn(this.checkIfNullValuesInArray(this.squares));
+    if (!this.checkIfNullValuesInArray(this.squares) && !this.winner) {
+      this.isGame = false;
+    }
+  }
+
+  protected checkIfNullValuesInArray(array: any[]) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === null) {
+        return true;
+      }
+    }
+    return false;
   }
 
   protected calculateWinner() {
