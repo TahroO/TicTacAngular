@@ -4,11 +4,11 @@ main {
   grid-template-columns: 200px 200px 200px;
   grid-gap: 0px;
 }
+
 app-square {
   border: 1px black solid;
   height: 200px;
 }
-
 
 
 .startButton {
@@ -17,11 +17,12 @@ app-square {
   height: 75px;
   width: 150px;
   align-self: center;
-  background: rgb(247,32,32);
-  background: linear-gradient(86deg, rgba(247,32,32,1) 0%, rgba(37,53,255,1) 100%);
+  background: rgb(247, 32, 32);
+  background: linear-gradient(86deg, rgba(247, 32, 32, 1) 0%, rgba(37, 53, 255, 1) 100%);
   border: 2px black solid;
 
 }
+
 .startButton:hover {
   animation: pulse 2s infinite;
 }
@@ -41,7 +42,7 @@ app-square {
 }
 
 .resultContainer {
-  width: 500px;
+  width: 600px;
   height: 50px;
 }
 

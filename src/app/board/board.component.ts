@@ -17,6 +17,7 @@ export class BoardComponent implements OnInit {
   squares: any[];
   xIsNext: boolean;
   winner: string;
+  draw: boolean;
   isGame: boolean;
   counterX: number;
   counterO: number;
@@ -26,6 +27,7 @@ export class BoardComponent implements OnInit {
     this.squares = [];
     this.xIsNext = true;
     this.winner = '';
+    this.draw = false;
     this.isGame = true;
     this.counterX = 0;
     this.counterO = 0;
@@ -41,6 +43,7 @@ export class BoardComponent implements OnInit {
     this.squares = Array(9).fill(null);
     this.xIsNext = true;
     this.winner = '';
+    this.draw = false;
     this.isGame = this.switchGameActive();
     this.showStartButton = false;
 
@@ -64,6 +67,7 @@ export class BoardComponent implements OnInit {
     console.warn(this.checkIfNullValuesInArray(this.squares));
     if (!this.checkIfNullValuesInArray(this.squares) && !this.winner) {
       this.isGame = false;
+      this.draw = true;
     }
   }
 
