@@ -38,7 +38,6 @@ export class BoardComponent implements OnInit {
     this.newGame();
   }
 
-
   protected newGame() {
     this.squares = Array(9).fill(null);
     this.xIsNext = true;
@@ -63,8 +62,6 @@ export class BoardComponent implements OnInit {
       this.xIsNext = !this.xIsNext;
     }
     this.winner = this.calculateWinner();
-    console.warn(this.squares);
-    console.warn(this.checkIfNullValuesInArray(this.squares));
     if (!this.checkIfNullValuesInArray(this.squares) && !this.winner) {
       this.isGame = false;
       this.draw = true;
